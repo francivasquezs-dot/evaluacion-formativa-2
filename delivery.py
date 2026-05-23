@@ -14,13 +14,13 @@ while True:
         }
         while True:
             print("\n--- MENÚ DELIVERY SUSHI ---")
-            print("1. Pikachu Roll $4500")
-            print("2. Otaku Roll $5000")
-            print("3. Pulpo Venenoso Roll $5200")
-            print("4. Anguila Eléctrica Roll $4800")
+            print("1. Pikachu Roll $4.500 ")
+            print("2. Otaku Roll $5.000 ")
+            print("3. Pulpo Venenoso Roll $5.200 ")
+            print("4. Anguila Eléctrica Roll $4.800 ")
             print("5. Terminar pedido")
             
-            opcion = input("Seleccione una opción, por favor. (1-5): ").strip()
+            opcion = input("seleccione una opción, por favor. (1-5): ").strip()
             
             if opcion == "1":
                 carrito["Pikachu Roll"] += 1
@@ -39,29 +39,29 @@ while True:
                 if total_items > 0:
                     break
                 else:
-                    print("Su pedido está vacío. Agregue un roll antes de terminar.")
+                    print("su pedido esta vacio. agregue un roll antes de terminar.")
             else:
-                print("Opción no válida. Intente nuevamente.")
+                print("opcion no valida. intente nuevamente.")
         descuento_aplicado = 0
         
         while True:
-            tiene_codigo = input("\n¿Posee un código de descuento? (S/N): ").strip().upper()
+            tiene_codigo = input("\n¿posee un codigo de descuento? (S/N): ").strip().upper()
             if tiene_codigo == "N":
                 break
             elif tiene_codigo == "S":
-                codigo = input("Ingrese el código de descuento: ").strip()
+                codigo = input("ingrese el codigo de descuento: ").strip()
                 
                 if codigo == "soyotaku":
                     descuento_aplicado = 0.10
-                    print("¡Código válido! Se aplicará un 10% de descuento.")
+                    print("¡codigo valido! Se aplicara un 10% de descuento.")
                     break
                 else:
-                    print("Código no válido.")
-                    opcion_error = input("Presione ENTER para reingresar el código o 'X' para continuar sin descuento: ").strip().upper()
+                    print("codigo no valido.")
+                    opcion_error = input("presione ENTER para reingresar el codigo o 'X' para continuar sin descuento: ").strip().upper()
                     if opcion_error == "X":
                         break
             else:
-                print("Opción no válida. Ingrese S o N.")
+                print("opcion no valida. ingrese S o N.")
         total_productos = sum(carrito.values())
         subtotal = sum(carrito[roll] * precios[roll] for roll in carrito)
         monto_descuento = int(subtotal * descuento_aplicado)
@@ -73,10 +73,10 @@ while True:
             print(f"{roll} : {cantidad}")
         print("*" * 30)
         print(f"Subtotal por pagar: ${subtotal}")
-        print(f"Descuento por código: ${monto_descuento}")
+        print(f"Descuento por codigo: ${monto_descuento}")
         print(f"TOTAL: ${total_final}")
         print("*" * 30)
-        otro_pedido = input("\n¿Desea realizar otro pedido? (S/N): ").strip().upper()
+        otro_pedido = input("\n¿desea realizar otro pedido? (S/N): ").strip().upper()
         if otro_pedido != "S":
-            print("¡Gracias por comprar en nuestro Delivery de Sushi! Hasta pronto.")
+            print("¡gracias por comprar en nuestro delivery de sushi! hasta pronto.")
             break
